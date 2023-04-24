@@ -403,6 +403,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4258608198211007712, guid: b76017fc4ce2c2b4dad7d94f56186fcc, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5316922511938586588, guid: b76017fc4ce2c2b4dad7d94f56186fcc, type: 3}
       propertyPath: m_Name
       value: GameMgr
