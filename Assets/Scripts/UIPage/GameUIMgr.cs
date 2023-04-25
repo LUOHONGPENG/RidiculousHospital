@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIMgr : MonoBehaviour
+public class GameUIMgr : MonoBehaviour
 {
-    public GameUIMgr gameUIMgr;
+    public InterfaceUIMgr interfaceUIMgr;
 
     public void Init()
     {
-        gameUIMgr.Init();
+        interfaceUIMgr.Init();
     }
+
 }

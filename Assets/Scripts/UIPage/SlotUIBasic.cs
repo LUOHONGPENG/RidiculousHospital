@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UIMgr : MonoBehaviour
+public class SlotUIBasic : MonoBehaviour
 {
-    public GameUIMgr gameUIMgr;
+    public Button btnSlot;
+    public Image imgSlot;
 
     public void Init()
     {
-        gameUIMgr.Init();
+
     }
 }
