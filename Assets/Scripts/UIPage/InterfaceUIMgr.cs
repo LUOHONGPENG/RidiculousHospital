@@ -10,6 +10,23 @@ public class InterfaceUIMgr : MonoBehaviour
 
     public void Init()
     {
+        InitSlot();
+    }
 
+    public void InitSlot()
+    {
+        PublicTool.ClearChildItem(tfSlotLeft);
+        PublicTool.ClearChildItem(tfSlotRight);
+
+
+        List<ToolModel> listTool = GameMgr.Instance.dataMgr.listToolModel;
+        for(int i = 0;i < listTool.Count; i++)
+        {
+            GameObject objToolUI = GameObject.Instantiate(pfSlot, tfSlotLeft);
+            SlotUIBasic itemToolUI = objToolUI.GetComponent<SlotUIBasic>();
+
+            ToolModel toolModel = listTool[i];
+            itemToolUI.Init(toolModel);
+        }
     }
 }
