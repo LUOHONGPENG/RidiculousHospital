@@ -21,12 +21,12 @@ public class DataMgr : MonoSingleton<DataMgr>
         dicPatientModel.Add(1006, new PatientModel(1006, "", ""));
 
         listToolModel.Clear();
-        listToolModel.Add(new ToolModel(1001, "Ice Pick", "A method to cure mental illness."));
-        listToolModel.Add(new ToolModel(1002, "Mercury", ""));
-        listToolModel.Add(new ToolModel(1003, "CCC", ""));
-        listToolModel.Add(new ToolModel(1004, "DDD", ""));
-        listToolModel.Add(new ToolModel(1005, "EEE", ""));
-        listToolModel.Add(new ToolModel(1006, "FFF", ""));
+        listToolModel.Add(new ToolModel(1001, "imgToolIcePick", "Ice Pick", "A method to cure mental illness."));
+        listToolModel.Add(new ToolModel(1002, "imgToolMercury", "Mercury", ""));
+        listToolModel.Add(new ToolModel(1003, "imgToolPoppy", "Poppy", ""));
+        listToolModel.Add(new ToolModel(1004, "imgToolElectric", "Electric Shock", ""));
+        listToolModel.Add(new ToolModel(1005, "imgToolLeeches", "Leeches", ""));
+        listToolModel.Add(new ToolModel(1006, "imgToolCrosses", "Crosses", ""));
 
         dicToolModel.Clear();
         for(int i = 0; i < listToolModel.Count; i++)
@@ -55,10 +55,12 @@ public class ToolModel
     public int ID;
     public string name;
     public string desc;
+    public string toolUrl;
 
-    public ToolModel(int ID,string name,string desc)
+    public ToolModel(int ID, string toolUrl, string name,string desc)
     {
         this.ID = ID;
+        this.toolUrl = toolUrl;
         this.name = name;
         this.desc = desc;
     }

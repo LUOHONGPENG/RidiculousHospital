@@ -12,5 +12,7 @@ public class SlotUIBasic : MonoBehaviour
     public void Init(ToolModel toolModel)
     {
         this.toolModel = toolModel;
+
+        imgSlot.sprite = Resources.Load<Sprite>("Tools/" + toolModel.toolUrl);
     }
 }
