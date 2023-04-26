@@ -56,6 +56,7 @@ public class ToolModel
     public string name;
     public string desc;
     public string toolUrl;
+    public ToolType toolType;
 
     public ToolModel(int ID, string toolUrl, string name,string desc)
     {
@@ -63,5 +64,28 @@ public class ToolModel
         this.toolUrl = toolUrl;
         this.name = name;
         this.desc = desc;
+
+        switch (ID)
+        {
+            case 1001:
+                toolType = ToolType.IcePick;
+                break;
+            case 1002:
+                toolType = ToolType.Mercury;
+                break;
+            case 1003:
+                toolType = ToolType.Poppy;
+                break;
+            case 1004:
+                toolType = ToolType.ElectricShock;
+                break;
+            case 1005:
+                toolType = ToolType.Leeches;
+                break;
+            case 1006:
+                toolType = ToolType.Crosses;
+                break;
+        }
     }
+
 }
