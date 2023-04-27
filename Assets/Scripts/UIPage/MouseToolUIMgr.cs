@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MouseToolUIMgr : MonoBehaviour
 {
     public Image imgMouse;
+    public Transform tfMouse;
 
     public List<Sprite> listSpMouse = new List<Sprite>();
 
@@ -16,7 +17,7 @@ public class MouseToolUIMgr : MonoBehaviour
 
     public void Update()
     {
-        imgMouse.transform.position = PublicTool.GetMousePosition2D();
+        tfMouse.position = PublicTool.GetMousePosition2D();
     }
 
 
@@ -37,6 +38,15 @@ public class MouseToolUIMgr : MonoBehaviour
                 imgMouse.gameObject.SetActive(true);
                 imgMouse.sprite = Resources.Load<Sprite>("Tools/" + toolModel.toolUrl);
                 break;
+        }
+
+        if(toolModel.toolType == ToolType.IcePick)
+        {
+            imgMouse.transform.localPosition = new Vector2(132f, 16f);
+        }
+        else
+        {
+            imgMouse.transform.localPosition = Vector2.zero;
         }
     }
 }

@@ -15,6 +15,9 @@ public class CharacterMgr : MonoBehaviour
 
         srHead.sprite = Resources.Load<Sprite>("Patients/" + patientModel.headUrl);
         srBody.sprite = Resources.Load<Sprite>("Patients/" + patientModel.bodyUrl);
+        srBody.transform.localPosition = patientModel.posBody;
+        srHead.gameObject.AddComponent<PolygonCollider2D>();
+        srBody.gameObject.AddComponent<PolygonCollider2D>();
 
     }
 }
