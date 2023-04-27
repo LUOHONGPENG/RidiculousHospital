@@ -6,10 +6,16 @@ public class LevelMgr : MonoBehaviour
 {
     [HideInInspector]
     public ToolType curTool;
+    public CharacterMgr characterMgr;
+    public Dictionary<int, PatientModel> dicPatient;
 
     public void Init()
     {
         EventCenter.Instance.AddEventListener("ChangeTool", ChangeTool);
+
+        dicPatient = GameMgr.Instance.dataMgr.dicPatientModel;
+
+        characterMgr.Init(dicPatient[1001]);
     }
 
     public void OnDestroy()

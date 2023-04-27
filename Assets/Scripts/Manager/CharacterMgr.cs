@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class CharacterMgr : MonoBehaviour
 {
-    public PatientModel patientModel;
-
     public SpriteRenderer srHead;
-
     public SpriteRenderer srBody;
 
-    public void Init()
+    private PatientModel patientModel;
+
+    public void Init(PatientModel patientModel)
     {
+        this.patientModel = patientModel;
+
+        srHead.sprite = Resources.Load<Sprite>("Patients/" + patientModel.headUrl);
+        srBody.sprite = Resources.Load<Sprite>("Patients/" + patientModel.bodyUrl);
 
     }
 }
