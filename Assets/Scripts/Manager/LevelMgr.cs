@@ -14,7 +14,9 @@ public class LevelMgr : MonoBehaviour
     private ToolType curTool;
     private PatientType curPatientType;
     private CharacterMgr curPatientMgr;
-    private float timerCharacter;
+    public float timerCharacter;
+    public float dataCharacterHP;
+    private int dataCharacterTreat;
     private bool isCreatingCharacter;
     private bool isInit = false;
 
@@ -101,11 +103,17 @@ public class LevelMgr : MonoBehaviour
         {
             if(dicTreat[patientType] == toolType)
             {
+                dataCharacterTreat++;
+                dataCharacterHP -= 10f;
                 Debug.Log("GoodTreat");
+                EventCenter.Instance.EventTrigger("HealthBar", dataCharacterHP);
             }
             else
             {
+                dataCharacterHP -= 30f;
                 Debug.Log("WrongTreat");
+                EventCenter.Instance.EventTrigger("HealthBar", dataCharacterHP);
+
             }
         }
     }
@@ -127,7 +135,12 @@ public class LevelMgr : MonoBehaviour
                 StartCoroutine(IE_DestoryCharacter());
             }
             CreateCharacter();
+            dataCharacterHP = 100f;
+            dataCharacterTreat = 0;
             timerCharacter = 5f;
+            EventCenter.Instance.EventTrigger("HealthBar", dataCharacterHP);
+
+
             isCreatingCharacter = false;
         }
     }
