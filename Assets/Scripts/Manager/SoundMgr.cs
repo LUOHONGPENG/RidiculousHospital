@@ -31,8 +31,8 @@ public class SoundMgr : MonoBehaviour
     {
         dicSoundAudio.Clear();
         dicSoundAudio.Add(SoundType.NormalStart, auNormalStart);
-        dicSoundAudio.Add(SoundType.NormalOuch, auNormalStart);
-        dicSoundAudio.Add(SoundType.NormalAfter, auNormalStart);
+        dicSoundAudio.Add(SoundType.NormalOuch, auNormalOuch);
+        dicSoundAudio.Add(SoundType.NormalAfter, auNormalAfter);
         dicSoundAudio.Add(SoundType.BadyStart, auBadyStart);
         dicSoundAudio.Add(SoundType.BadyOuch, auBadyOuch);
         dicSoundAudio.Add(SoundType.BadyAfter, auBadyAfter);
@@ -47,7 +47,7 @@ public class SoundMgr : MonoBehaviour
         {
             AudioSource targetSound = dicSoundAudio[soundType];
 
-            float playTime = 0.5f;
+            float playTime = 0f;
             if (dicSoundTime.ContainsKey(soundType))
             {
                 playTime = dicSoundTime[soundType];
