@@ -113,11 +113,29 @@ public class LevelMgr : MonoBehaviour
             {
                 dataCharacterHP -= 30f;
                 EventCenter.Instance.EventTrigger("HealthBar", dataCharacterHP);
+                switch (curPatientType)
+                {
+                    case PatientType.Crying:
+                        GameMgr.Instance.soundMgr.PlaySound(SoundType.BadyOuch);
+                        break;
+                    default:
+                        GameMgr.Instance.soundMgr.PlaySound(SoundType.NormalOuch);
+                        break;
+                }
             }
 
             if (dataCharacterTreat >= 3)
             {
                 curPatientMgr.Cure();
+                switch (curPatientType)
+                {
+                    case PatientType.Crying:
+                        GameMgr.Instance.soundMgr.PlaySound(SoundType.BadyAfter);
+                        break;
+                    default:
+                        GameMgr.Instance.soundMgr.PlaySound(SoundType.NormalAfter);
+                        break;
+                }
             }
         }
     }
@@ -179,6 +197,16 @@ public class LevelMgr : MonoBehaviour
             curPatientMgr.transform.DOMoveX(0, 1f);
 
             curID++;
+
+            switch (curPatientType)
+            {
+                case PatientType.Crying:
+                    GameMgr.Instance.soundMgr.PlaySound(SoundType.BadyStart);
+                    break;
+                default:
+                    GameMgr.Instance.soundMgr.PlaySound(SoundType.NormalStart);
+                    break;
+            }
         }
         else
         {
