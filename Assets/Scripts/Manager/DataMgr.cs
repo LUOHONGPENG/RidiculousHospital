@@ -17,18 +17,18 @@ public class DataMgr : MonoSingleton<DataMgr>
         dicPatientModel.Add(1001, new PatientModel(1001, "imgLobeHead", "imgLobeBody", "imgLobeHead", "imgLobeBody",new Vector2(-0.7f,-4f), new Vector2(-0.7f, -4f)));
         dicPatientModel.Add(1002, new PatientModel(1002, "imgWhiteHead", "imgWhiteBody", "imgWhiteHeadAfter", "imgWhiteBody", new Vector2(0, -3.79f), new Vector2(0, -3.79f)));
         dicPatientModel.Add(1003, new PatientModel(1003, "imgSyphilisHead", "imgSyphilisBody", "imgSyphilisHead", "imgSyphilisBody", new Vector2(0.46f, -3.24f), new Vector2(0.46f, -3.24f)));
-        dicPatientModel.Add(1004, new PatientModel(1004, "imgSleepHead", "imgSleepBody", "imgSleepHeadAfter", "imgSleepBodyAfter", new Vector2(-0.63f, -2.39f), new Vector2(-0.63f, -2.39f)));
+        dicPatientModel.Add(1004, new PatientModel(1004, "imgSleepHead", "imgSleepBody", "imgSleepHeadAfter", "imgSleepBodyAfter", new Vector2(-0.63f, -2.39f), new Vector2(0.86f, -3.9f)));
         dicPatientModel.Add(1005, new PatientModel(1005, "imgSkincareHead", "imgSkincareBody", "imgSkincareHeadAfter", "imgSkincareBody", new Vector2(0, -4.55f), new Vector2(0, -4.55f)));
         dicPatientModel.Add(1006, new PatientModel(1006, "imgBloodHead", "imgBloodBody", "imgBloodHeadAfter", "imgBloodBodyAfter", new Vector2(0, -4.56f), new Vector2(0, -4.56f)));
-        dicPatientModel.Add(1007, new PatientModel(1007, "imgDevilHead", "imgDevilBody", "imgDevilHeadAfter", "imgDevilBodyAfter", new Vector2(0.38f, -1.98f), new Vector2(0.38f, -1.98f)));
+        dicPatientModel.Add(1007, new PatientModel(1007, "imgDevilHead", "imgDevilBody", "imgDevilHeadAfter", "imgDevilBodyAfter", new Vector2(0.38f, -1.98f), new Vector2(0.1f, -4.1f)));
 
         listToolModel.Clear();
-        listToolModel.Add(new ToolModel(1001, "imgToolIcePick", "Ice Pick", "A method to cure mental illness."));
-        listToolModel.Add(new ToolModel(1002, "imgToolMercury", "Mercury", ""));
-        listToolModel.Add(new ToolModel(1003, "imgToolPoppy", "Poppy", ""));
-        listToolModel.Add(new ToolModel(1004, "imgToolElectric", "Electric Shock", ""));
-        listToolModel.Add(new ToolModel(1005, "imgToolLeeches", "Leeches", ""));
-        listToolModel.Add(new ToolModel(1006, "imgToolCrosses", "Crosses", ""));
+        listToolModel.Add(new ToolModel(1001, "imgToolIcePick", "Ice Pick", "Cure mental illness."));
+        listToolModel.Add(new ToolModel(1002, "imgToolMercury", "Mercury", "Whiten Skin and cure Syphilis"));
+        listToolModel.Add(new ToolModel(1003, "imgToolPoppy", "Poppy", "Stop baby crying"));
+        listToolModel.Add(new ToolModel(1004, "imgToolElectric", "Electric Shock", "For skincare"));
+        listToolModel.Add(new ToolModel(1005, "imgToolLeeches", "Leeches", "To stop bleed"));
+        listToolModel.Add(new ToolModel(1006, "imgToolCrosses", "Crosses", "To kill devil"));
 
         dicToolModel.Clear();
         for(int i = 0; i < listToolModel.Count; i++)
@@ -65,8 +65,8 @@ public class PatientModel
         this.ID = ID;
         this.headUrl = headUrl;
         this.bodyUrl = bodyUrl;
-        this.headUrlAfter = headUrl;
-        this.bodyUrlAfter = bodyUrl;
+        this.headUrlAfter = headUrlAfter;
+        this.bodyUrlAfter = bodyUrlAfter;
         this.posBody = posBody;
         this.posBodyAfter = posBodyAfter;
 

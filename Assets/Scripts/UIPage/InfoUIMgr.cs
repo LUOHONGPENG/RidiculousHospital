@@ -18,6 +18,7 @@ public class InfoUIMgr : MonoBehaviour
     {
         EventCenter.Instance.AddEventListener("HealthBar", RefreshHPBar);
         levelMgr = GameMgr.Instance.levelMgr;
+        RefreshHPBar(100f);
         isInit = true;
     }
 

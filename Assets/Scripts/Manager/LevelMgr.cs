@@ -20,6 +20,8 @@ public class LevelMgr : MonoBehaviour
     private bool isCreatingCharacter;
     private bool isInit = false;
 
+    public int NumCured = 0;
+    public int NumDead = 0;
 
     private Dictionary<int, PatientModel> dicPatient;
     private Dictionary<PatientType, ToolType> dicTreat;
@@ -105,15 +107,17 @@ public class LevelMgr : MonoBehaviour
             {
                 dataCharacterTreat++;
                 dataCharacterHP -= 10f;
-                Debug.Log("GoodTreat");
                 EventCenter.Instance.EventTrigger("HealthBar", dataCharacterHP);
             }
             else
             {
                 dataCharacterHP -= 30f;
-                Debug.Log("WrongTreat");
                 EventCenter.Instance.EventTrigger("HealthBar", dataCharacterHP);
+            }
 
+            if (dataCharacterTreat >= 3)
+            {
+                curPatientMgr.Cure();
             }
         }
     }
@@ -137,10 +141,8 @@ public class LevelMgr : MonoBehaviour
             CreateCharacter();
             dataCharacterHP = 100f;
             dataCharacterTreat = 0;
-            timerCharacter = 5f;
+            timerCharacter = 8f;
             EventCenter.Instance.EventTrigger("HealthBar", dataCharacterHP);
-
-
             isCreatingCharacter = false;
         }
     }
@@ -148,6 +150,16 @@ public class LevelMgr : MonoBehaviour
     public IEnumerator IE_DestoryCharacter()
     {
         CharacterMgr tempCharacter = curPatientMgr;
+
+        if (dataCharacterHP <= 40f)
+        {
+            NumDead++;
+        }
+        else if(tempCharacter.isCure)
+        {
+            NumCured++;
+        }
+
         tempCharacter.transform.DOMoveX(-15f, 1f);
         yield return new WaitForSeconds(1f);
         Destroy(tempCharacter.gameObject);
@@ -170,6 +182,7 @@ public class LevelMgr : MonoBehaviour
         }
         else
         {
+            EventCenter.Instance.EventTrigger("End", null);
             //End
         }
     }

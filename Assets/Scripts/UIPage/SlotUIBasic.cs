@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class SlotUIBasic : MonoBehaviour
+public class SlotUIBasic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Button btnSlot;
     public Image imgSlot;
     private ToolModel toolModel;
+    public HoverTipUIMgr hover;
 
     public void Init(ToolModel toolModel)
     {
@@ -25,4 +27,13 @@ public class SlotUIBasic : MonoBehaviour
         
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        hover.Init(toolModel.name, toolModel.desc, this.transform.position);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        hover.Hide();
+    }
 }

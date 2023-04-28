@@ -7,6 +7,7 @@ public class GameUIMgr : MonoBehaviour
     public MouseToolUIMgr mouseToolUIMgr;
     public InterfaceUIMgr interfaceUIMgr;
     public InfoUIMgr infoUIMgr;
+
     public void Init()
     {
         interfaceUIMgr.Init();
